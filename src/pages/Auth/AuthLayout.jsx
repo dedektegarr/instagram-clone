@@ -17,8 +17,8 @@ const AuthLayout = () => {
           <img src={authFigure} alt="Auth Figure" className="h-[580px]" />
         </figure>
         <div className="w-[350px]">
-          <article className="w-full border border-slate-300 pt-10 px-10 pb-7 flex flex-col items-center rounded-md">
-            <img src={logo} alt="logo" />
+          <article className="w-full border border-slate-300 pt-10 px-10 pb-7 flex flex-col items-center rounded-md bg-white">
+            <img src={logo} alt="logo" className="mb-8" />
             <Outlet />
 
             <div className="flex items-center w-full gap-3 my-5">
