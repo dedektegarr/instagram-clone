@@ -1,8 +1,8 @@
 import SidebarNavItem from "./SidebarNavItem";
 import { GoHome } from "react-icons/go";
 import { CiSearch, CiHeart, CiSquarePlus } from "react-icons/ci";
-import logo from "/assets/logo.png";
-import ProfileCircle from "../UI/ProfileCircle/ProfileCircle";
+import profile from "/assets/profile.jpg";
+import { ProfileCircle } from "../Profile/ProfileCircle";
 
 const SidebarNav = () => {
   return (
@@ -30,12 +30,7 @@ const SidebarNav = () => {
       <SidebarNavItem
         to="profile"
         label="Profile"
-        icon={
-          <ProfileCircle
-            src={logo}
-            className="h-[30px] w-[30px] object-contain"
-          />
-        }
+        icon={<ProfileCircle src={profile} className="w-[30px]" />}
       />
     </ul>
   );
