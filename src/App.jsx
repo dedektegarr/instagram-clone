@@ -5,6 +5,7 @@ import AuthLayout from "./pages/Auth/AuthLayout";
 import MainLayout from "./pages/MainLayout";
 import HomePage from "./pages/Home/HomePage";
 import ProfilePage from "./pages/Profile/ProfilePage";
+import PostDetails from "./components/Posts/PostDetails";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "profile", element: <ProfilePage /> },
+      {
+        path: "profile",
+        element: <ProfilePage />,
+        children: [{ path: "post/:postId", element: <PostDetails /> }],
+      },
     ],
   },
 ]);

@@ -39,7 +39,7 @@ const HomePage = () => {
                 username="dedektegar"
                 caption="590 follower"
               />
-              <Link className="text-xs text-blue-500 hover:text-blue-700 font-medium">
+              <Link className="text-sm text-blue-500 hover:text-blue-700 font-medium">
                 Follow
               </Link>
             </div>
@@ -50,7 +50,7 @@ const HomePage = () => {
                 username="dedektegar"
                 caption="590 follower"
               />
-              <Link className="text-xs text-blue-500 hover:text-blue-700 font-medium">
+              <Link className="text-sm text-blue-500 hover:text-blue-700 font-medium">
                 Follow
               </Link>
             </div>
@@ -61,7 +61,7 @@ const HomePage = () => {
                 username="dedektegar"
                 caption="590 follower"
               />
-              <Link className="text-xs text-blue-500 hover:text-blue-700 font-medium">
+              <Link className="text-sm text-blue-500 hover:text-blue-700 font-medium">
                 Follow
               </Link>
             </div>

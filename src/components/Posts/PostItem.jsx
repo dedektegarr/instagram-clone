@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ProfileLink } from "../Profile/ProfileCircle";
 import profile from "/assets/profile.jpg";
-import { CiEdit, CiHeart, CiSaveDown2 } from "react-icons/ci";
+import { CiHeart, CiSaveDown2 } from "react-icons/ci";
 import PostCommentForm from "./PostCommentForm";
 
 const PostItem = () => {
@@ -17,8 +17,8 @@ const PostItem = () => {
             uploaded="Now"
           />
 
-          <Link className="p-2 hover:bg-gray-200 rounded-full">
-            <CiEdit />
+          <Link className="p-2 font-medium text-sm text-blue-500 hover:text-blue-600 rounded-full">
+            Follow
           </Link>
         </header>
 

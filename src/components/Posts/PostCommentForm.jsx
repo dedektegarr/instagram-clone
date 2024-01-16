@@ -1,14 +1,17 @@
 import React from "react";
 
-const PostCommentForm = () => {
+const PostCommentForm = ({ className }) => {
   return (
-    <form action="" className="w-full flex items-center border-b gap-2 py-2">
+    <form
+      action=""
+      className={`${className} w-full flex items-center border-b gap-2 py-2`}
+    >
       <input
         type="text"
         className="flex-1 outline-none py-2 text-sm"
         placeholder="Add a comment..."
       />
-      <button className="font-medium text-slate-600 text-sm">Post</button>
+      <button className="font-medium text-blue-500 text-sm">Post</button>
     </form>
   );
 };

@@ -2,6 +2,7 @@ import { useState } from "react";
 import ProfileHeader from "../../components/Profile/ProfileHeader";
 import ProfileTabs from "../../components/Profile/ProfileTabs";
 import PostProfileList from "../../components/Posts/PostProfileList";
+import { Outlet } from "react-router-dom";
 
 const ProfilePage = () => {
   const [selectedTab, setSelectedTab] = useState("posts");
@@ -11,12 +12,16 @@ const ProfilePage = () => {
   };
 
   return (
-    <div>
-      <ProfileHeader />
-      <ProfileTabs selected={selectedTab} onSelect={handleSelectTab} />
+    <>
+      <Outlet />
 
-      <PostProfileList />
-    </div>
+      <div>
+        <ProfileHeader />
+        <ProfileTabs selected={selectedTab} onSelect={handleSelectTab} />
+
+        <PostProfileList />
+      </div>
+    </>
   );
 };
 
