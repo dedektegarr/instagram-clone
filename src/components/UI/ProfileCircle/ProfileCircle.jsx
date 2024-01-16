@@ -1,10 +1,6 @@
-const ProfileCircle = ({ size, src }) => {
+const ProfileCircle = ({ src, className }) => {
   return (
-    <img
-      src={src}
-      alt="profile"
-      className={`h-[${size}px] w-[${size}px] rounded-full object-contain`}
-    />
+    <img src={src} alt="profile" className={`${className} rounded-full`} />
   );
 };
 export default ProfileCircle;

@@ -30,7 +30,12 @@ const SidebarNav = () => {
       <SidebarNavItem
         to="profile"
         label="Profile"
-        icon={<ProfileCircle src={logo} size="30" />}
+        icon={
+          <ProfileCircle
+            src={logo}
+            className="h-[30px] w-[30px] object-contain"
+          />
+        }
       />
     </ul>
   );

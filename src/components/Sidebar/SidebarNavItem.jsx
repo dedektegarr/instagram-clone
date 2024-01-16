@@ -8,7 +8,7 @@ const SidebarNavItem = ({ to, icon, label }) => {
         className={({ isActive }) =>
           `${
             isActive ? "bg-gray-200 font-medium" : ""
-          } flex items-center gap-3 hover:bg-gray-200 py-2 px-2 rounded-md transition`
+          } flex items-center gap-3 hover:bg-gray-200 py-2 lg:py-3 px-2 rounded-md transition`
         }
       >
         {icon}
