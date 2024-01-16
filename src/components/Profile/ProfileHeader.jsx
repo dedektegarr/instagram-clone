@@ -1,9 +1,16 @@
+import { useState } from "react";
 import Button from "../UI/Button/Button";
 import { ProfileCircle } from "./ProfileCircle";
 import ProfileTabs from "./ProfileTabs";
 import profile from "/assets/profile.jpg";
 
 const ProfileHeader = ({ user }) => {
+  const [selectedTab, setSelectedTab] = useState("posts");
+
+  const handleSelectTab = (newTab) => {
+    setSelectedTab(newTab);
+  };
+
   return (
     <>
       <header className="md:border-b md:pb-14">
@@ -12,7 +19,9 @@ const ProfileHeader = ({ user }) => {
           <div className="flex flex-col md:gap-3">
             <div className="flex items-start md:items-center flex-col md:flex-row gap-2 md:gap-4">
               <p className="font-medium text-xl md:text-base">dedektegar</p>
-              <Button className="text-xs">Edit Profile</Button>
+              <Button className="text-xs hover:bg-blue-500">
+                Edit Profile
+              </Button>
             </div>
             <div className="items-center gap-4 hidden md:flex">
               <p className="text-center">
@@ -57,7 +66,8 @@ const ProfileHeader = ({ user }) => {
           </div>
         </div>
       </header>
-      <ProfileTabs />
+
+      <ProfileTabs selected={selectedTab} onSelect={handleSelectTab} />
     </>
   );
 };
