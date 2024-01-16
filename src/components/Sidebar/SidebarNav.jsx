@@ -1,12 +1,12 @@
 import SidebarNavItem from "./SidebarNavItem";
 import { GoHome } from "react-icons/go";
-import { CiSearch, CiHeart, CiSquarePlus } from "react-icons/ci";
+import { CiSearch, CiHeart, CiLogout, CiSquarePlus } from "react-icons/ci";
 import profile from "/assets/profile.jpg";
 import { ProfileCircle } from "../Profile/ProfileCircle";
 
 const SidebarNav = () => {
   return (
-    <ul className="flex flex-col gap-2 mt-8">
+    <ul className="flex flex-col gap-2 mt-8 h-[90%]">
       <SidebarNavItem
         to=""
         label="Home"
@@ -31,6 +31,12 @@ const SidebarNav = () => {
         to="profile"
         label="Profile"
         icon={<ProfileCircle src={profile} className="w-[30px]" />}
+      />
+      <SidebarNavItem
+        className="mt-auto"
+        to="logout"
+        label="Log out"
+        icon={<CiLogout className="text-3xl" />}
       />
     </ul>
   );

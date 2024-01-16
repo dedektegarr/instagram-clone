@@ -8,7 +8,7 @@ const PostItem = () => {
   return (
     <li>
       <article>
-        <header className="flex justify-between items-center mb-2">
+        <header className="flex justify-between items-center mb-3">
           <ProfileLink
             src={profile}
             username="dedektgarr"

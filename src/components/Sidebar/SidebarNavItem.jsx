@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-const SidebarNavItem = ({ to, icon, label }) => {
+const SidebarNavItem = ({ to, icon, label, className }) => {
   return (
-    <li>
+    <li className={`${className}`}>
       <NavLink
         to={to}
         className={({ isActive }) =>

@@ -16,7 +16,7 @@ const MainLayout = () => {
         </div>
       </main>
       <div className="py-8 pl-4 pr-10 w-[365px] hidden lg:block bg-white">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-7">
           <ProfileLink
             src={profile}
             className="h-[45px]"
@@ -29,7 +29,7 @@ const MainLayout = () => {
         </div>
 
         <div>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <div className="flex justify-between text-sm font-medium">
               <h4 className="text-slate-500">Suggested for you</h4>
               <Link className="text-sm text-slate-900 hover:text-slate-300">
