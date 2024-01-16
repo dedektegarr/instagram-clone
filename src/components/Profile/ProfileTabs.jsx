@@ -18,7 +18,7 @@ const Tab = ({ icon, label, selected, onSelect }) => {
 
 const ProfileTabs = ({ onSelect, selected }) => {
   return (
-    <div className="flex justify-center w-full">
+    <div className="flex justify-center w-full mb-1">
       <div className="flex md:justify-around items-center w-full md:w-[400px]">
         <Tab
           icon={<CiGrid41 className="text-2xl" />}

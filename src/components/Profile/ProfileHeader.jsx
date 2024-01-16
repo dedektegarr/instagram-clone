@@ -1,16 +1,8 @@
-import { useState } from "react";
 import Button from "../UI/Button/Button";
 import { ProfileCircle } from "./ProfileCircle";
-import ProfileTabs from "./ProfileTabs";
 import profile from "/assets/profile.jpg";
 
 const ProfileHeader = ({ user }) => {
-  const [selectedTab, setSelectedTab] = useState("posts");
-
-  const handleSelectTab = (newTab) => {
-    setSelectedTab(newTab);
-  };
-
   return (
     <>
       <header className="md:border-b md:pb-14">
@@ -66,8 +58,6 @@ const ProfileHeader = ({ user }) => {
           </div>
         </div>
       </header>
-
-      <ProfileTabs selected={selectedTab} onSelect={handleSelectTab} />
     </>
   );
 };
