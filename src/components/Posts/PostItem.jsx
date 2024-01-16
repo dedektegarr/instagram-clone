@@ -16,17 +16,6 @@ const PostItem = () => {
             caption="Indonesia"
             uploaded="Now"
           />
-          {/* <Link className="flex items-center gap-2">
-            <ProfileCircle src={profile} className="w-[35px]" />
-            <div className="flex flex-col text-sm">
-              <div className="font-medium flex items-center gap-2 ">
-                <span className="">dedektegar</span>
-                <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
-                <span className="text-gray-400">Now</span>
-              </div>
-              <span className="text-slate-500 mt-[-2px]">Indonesia</span>
-            </div>
-          </Link> */}
 
           <Link className="p-2 hover:bg-gray-200 rounded-full">
             <CiEdit />
