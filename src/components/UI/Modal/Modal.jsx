@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom";
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Modal = ({ children, onClose }) => {
   const navigate = useNavigate();
@@ -23,12 +24,14 @@ const Modal = ({ children, onClose }) => {
           <IoClose />
         </button>
       </div>
-      <dialog
+      <motion.dialog
+        initial={{ scale: 0.5, opacity: 0, y: "-50%" }}
+        animate={{ scale: 1, opacity: 1 }}
         open
         className="fixed z-10 top-1/2 -translate-y-1/2 rounded-md overflow-hidden"
       >
         {children}
-      </dialog>
+      </motion.dialog>
     </>,
     document.getElementById("modal")
   );
