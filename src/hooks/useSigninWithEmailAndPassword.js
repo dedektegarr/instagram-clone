@@ -39,7 +39,8 @@ const useSigninWithEmailAndPassword = () => {
       } finally {
         setLoading(false);
       }
-    }
+    },
+    [auth]
   );
 
   return { signInUserWithEmailAndPassword, user, loading, error };

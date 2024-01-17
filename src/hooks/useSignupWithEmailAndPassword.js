@@ -8,7 +8,7 @@ const useSignupWithEmailAndPassword = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
-  const { setSignedUser } = useAuthContext();
+  const { setSignedUser, setToken } = useAuthContext();
 
   const signUpUserWithEmailAndPassword = useCallback(
     async ({ email, password, username, fullName }) => {
@@ -52,7 +52,8 @@ const useSignupWithEmailAndPassword = () => {
       } finally {
         setLoading(false);
       }
-    }
+    },
+    [auth]
   );
 
   return { signUpUserWithEmailAndPassword, user, loading, error };

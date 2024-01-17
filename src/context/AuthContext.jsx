@@ -16,6 +16,8 @@ const AuthContextProvider = ({ children }) => {
 
   const setSignedUser = () => {
     onAuthStateChanged(auth, async (user) => {
+      if (!user) return;
+
       const uid = user.uid;
 
       const userData = await getDoc(doc(db, "users", uid));

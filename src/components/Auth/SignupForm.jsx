@@ -20,7 +20,7 @@ const SignupForm = () => {
     if (registeredUser) {
       e.target.reset();
       toast.success("Akun anda berhasil dibuat");
-      navigate("/accounts");
+      navigate("/");
     }
   };
 
