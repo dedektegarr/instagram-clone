@@ -6,6 +6,8 @@ import MainLayout from "./pages/MainLayout";
 import HomePage from "./pages/Home/HomePage";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import PostDetails from "./components/Posts/PostDetails";
+import { createPortal } from "react-dom";
+import { ToastContainer } from "react-toastify";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,28 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+
+      {createPortal(
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition:Bounce
+        />,
+        document.getElementById("modal")
+      )}
+    </>
+  );
 };
 
 export default App;
