@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import authFigure from "/assets/auth-figure.png";
 import logo from "/assets/logo.png";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebookSquare } from "react-icons/fa";
+import { useAuthContext } from "../../context/AuthContext";
 
 const AuthLayout = () => {
   const { pathname } = useLocation();
-  const pathArr = pathname.split("/");
+  const navigate = useNavigate();
+  const { token } = useAuthContext();
 
+  useEffect(() => {
+    if (token) navigate("/");
+  }, []);
+
+  const pathArr = pathname.split("/");
   const authStatus = pathArr[pathArr.length - 1];
 
   return (

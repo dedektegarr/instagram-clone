@@ -1,4 +1,4 @@
-import Spinners from "../Loader/Spinners";
+import Spinners from "../Loader/Spinners/Spinners";
 
 const Button = ({ children, type, className, isLoading, ...props }) => {
   return (

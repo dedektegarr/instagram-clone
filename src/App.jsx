@@ -36,7 +36,6 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
-
       {createPortal(
         <ToastContainer
           position="top-center"

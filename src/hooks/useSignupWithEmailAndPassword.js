@@ -2,11 +2,13 @@ import { useCallback, useState } from "react";
 import { auth, db } from "../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import { useAuthContext } from "../context/AuthContext";
 
 const useSignupWithEmailAndPassword = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(null);
+  const { setSignedUser } = useAuthContext();
 
   const signUpUserWithEmailAndPassword = useCallback(
     async ({ email, password, username, fullName }) => {
@@ -34,6 +36,13 @@ const useSignupWithEmailAndPassword = () => {
           };
 
           await setDoc(doc(db, "users", userCredentials.user.uid), newUser);
+          localStorage.setItem(
+            "token",
+            JSON.stringify(userCredentials.user.accessToken)
+          );
+
+          setSignedUser();
+          setToken(userCredentials.user.accessToken);
 
           setUser(newUser);
           return newUser;
