@@ -14,18 +14,18 @@ const initialState = {
 const validate = (inputs) => {
   let errors = {};
 
-  if (!inputs.fullName) {
+  if (!inputs.fullName.trim()) {
     errors.fullName = "Masukkan nama lengkap";
   }
-  if (!inputs.username) {
+  if (!inputs.username.trim()) {
     errors.username = "Masukkan username";
   }
-  if (!inputs.email) {
+  if (!inputs.email.trim()) {
     errors.email = "Masukkan email";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(inputs.email)) {
     errors.email = "Format email tidak valid";
   }
-  if (!inputs.password) {
+  if (!inputs.password.trim()) {
     errors.password = "Masukkan password";
   } else if (inputs.password.length < 8) {
     errors.password = "Password harus memiliki minimal 8 karakter";

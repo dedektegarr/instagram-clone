@@ -54,10 +54,15 @@ const useSignUp = () => {
         };
 
         await setDoc(doc(db, "users", credentials.user.uid), newUser);
-        setUser(newUser);
 
+        const userData = {
+          credentials: credentials.user,
+          user: newUser,
+        };
+
+        setUser(userData);
         toast.success(`Berhasil membuat akun`);
-        return newUser;
+        return userData;
       }
     } catch (error) {
       let message = error.message;
