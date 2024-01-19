@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFormValidation = (initialState, validate) => {
+const useFormValidation = (initialState, validate, onSubmit) => {
   const [inputs, setInputs] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
@@ -37,13 +37,18 @@ const useFormValidation = (initialState, validate) => {
   useEffect(() => {
     const noErrors = Object.keys(errors).length === 0;
 
-    if (submitting && noErrors) {
-      console.log("Submitting");
-      setSubmitting(false);
-    }
-  }, [submitting, errors]);
+    const handleOnSubmit = async () => {
+      if (submitting && noErrors) {
+        await onSubmit();
+        setInputs(initialState);
+        setSubmitting(false);
+      }
+    };
 
-  return { handleChangeInputs, handleSubmit, errors };
+    handleOnSubmit();
+  }, [submitting, errors, initialState]);
+
+  return { inputs, handleChangeInputs, handleSubmit, errors };
 };
 
 export default useFormValidation;

@@ -1,4 +1,5 @@
 import useFormValidation from "../../hooks/useFormValidation";
+import useSignUp from "../../hooks/useSignUp";
 import Button from "../UI/Button/Button";
 import { Input } from "../UI/Input/Input";
 
@@ -34,10 +35,13 @@ const validate = (inputs) => {
 };
 
 const SignupForm = () => {
-  const { handleChangeInputs, handleSubmit, errors } = useFormValidation(
-    initialState,
-    validate
-  );
+  const { signUp, loading } = useSignUp();
+  const {
+    inputs,
+    handleChangeInputs,
+    handleSubmit,
+    errors: formErrors,
+  } = useFormValidation(initialState, validate, () => signUp(inputs));
 
   return (
     <form action="" className="w-full" onSubmit={handleSubmit}>
@@ -46,7 +50,8 @@ const SignupForm = () => {
         name="fullName"
         type="text"
         placeholder="Full name"
-        error={errors?.fullName}
+        value={inputs.fullName}
+        error={formErrors?.fullName}
         onChange={(e) => handleChangeInputs(e.target.name, e.target.value)}
       />
       <Input
@@ -54,7 +59,8 @@ const SignupForm = () => {
         name="username"
         type="text"
         placeholder="Username"
-        error={errors?.username}
+        value={inputs.username}
+        error={formErrors?.username}
         onChange={(e) => handleChangeInputs(e.target.name, e.target.value)}
       />
       <Input
@@ -62,7 +68,8 @@ const SignupForm = () => {
         name="email"
         type="email"
         placeholder="Email"
-        error={errors?.email}
+        value={inputs.email}
+        error={formErrors?.email}
         onChange={(e) => handleChangeInputs(e.target.name, e.target.value)}
       />
       <Input
@@ -70,11 +77,17 @@ const SignupForm = () => {
         name="password"
         type="password"
         placeholder="Password"
-        error={errors?.password}
+        value={inputs.password}
+        error={formErrors?.password}
         onChange={(e) => handleChangeInputs(e.target.name, e.target.value)}
       />
 
-      <Button className="w-full hover:bg-blue-500 mt-3" type="submit">
+      <Button
+        className="w-full hover:bg-blue-500 mt-3"
+        type="submit"
+        isLoading={loading}
+        disabled={loading}
+      >
         Sign Up
       </Button>
     </form>
