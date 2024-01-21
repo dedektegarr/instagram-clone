@@ -62,6 +62,7 @@ const useSignUp = () => {
 
         setUser(userData);
         toast.success(`Berhasil membuat akun`);
+        setError(null);
         return userData;
       }
     } catch (error) {

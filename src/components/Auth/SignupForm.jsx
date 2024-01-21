@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useFormValidation from "../../hooks/useFormValidation";
 import useSignUp from "../../hooks/useSignUp";
 import Button from "../UI/Button/Button";
@@ -35,13 +36,20 @@ const validate = (inputs) => {
 };
 
 const SignupForm = () => {
-  const { signUp, loading } = useSignUp();
+  const { signUp, user, error: signUpError, loading } = useSignUp();
   const {
     inputs,
     handleChangeInputs,
     handleSubmit,
+    setInputs,
     errors: formErrors,
   } = useFormValidation(initialState, validate, () => signUp(inputs));
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && !signUpError && user) {
+      setInputs(initialState);
+    }
+  }, [formErrors, signUpError, user]);
 
   return (
     <form action="" className="w-full" onSubmit={handleSubmit}>

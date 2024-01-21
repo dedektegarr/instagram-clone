@@ -2,6 +2,7 @@ import useLogin from "../../hooks/useLogin";
 import Button from "../UI/Button/Button";
 import { Input } from "../UI/Input/Input";
 import useFormValidation from "../../hooks/useFormValidation";
+import { useEffect, useState } from "react";
 
 // INITIAL STATE AND VALIDATION RULES
 const initialState = {
@@ -27,9 +28,20 @@ const validate = (inputs) => {
 };
 
 const LoginForm = () => {
-  const { login, loading } = useLogin();
-  const { handleSubmit, inputs, handleChangeInputs, errors } =
-    useFormValidation(initialState, validate, () => login(inputs));
+  const { login, user, error: authError, loading } = useLogin();
+  const {
+    handleSubmit,
+    inputs,
+    setInputs,
+    handleChangeInputs,
+    errors: formErrors,
+  } = useFormValidation(initialState, validate, () => login(inputs));
+
+  useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && !authError && user) {
+      setInputs(initialState);
+    }
+  }, [formErrors, authError, user]);
 
   return (
     <form action="" className="w-full" onSubmit={handleSubmit}>
@@ -39,7 +51,7 @@ const LoginForm = () => {
         type="email"
         placeholder="Username or email"
         onChange={(e) => handleChangeInputs(e.target.name, e.target.value)}
-        error={errors?.email}
+        error={formErrors?.email}
         value={inputs.email}
       />
       <Input
@@ -48,7 +60,7 @@ const LoginForm = () => {
         type="password"
         placeholder="Password"
         onChange={(e) => handleChangeInputs(e.target.name, e.target.value)}
-        error={errors?.password}
+        error={formErrors?.password}
         value={inputs.password}
       />
 

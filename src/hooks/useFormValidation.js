@@ -40,15 +40,14 @@ const useFormValidation = (initialState, validate, onSubmit) => {
     const handleOnSubmit = async () => {
       if (submitting && noErrors) {
         await onSubmit();
-        setInputs(initialState);
         setSubmitting(false);
       }
     };
 
     handleOnSubmit();
-  }, [submitting, errors, initialState]);
+  }, [submitting, errors]);
 
-  return { inputs, handleChangeInputs, handleSubmit, errors };
+  return { inputs, setInputs, handleChangeInputs, handleSubmit, errors };
 };
 
 export default useFormValidation;

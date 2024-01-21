@@ -29,6 +29,7 @@ const useLogin = () => {
 
         toast.success(`Selamat datang kembali ${userData.user.fullName}`);
         setUser(userData);
+        setError(null);
         return userData;
       }
     } catch (error) {
