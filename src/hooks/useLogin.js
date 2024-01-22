@@ -27,7 +27,7 @@ const useLogin = () => {
           data: docSnap.data(),
         };
 
-        toast.success(`Selamat datang kembali ${userData.user.fullName}`);
+        toast.success(`Selamat datang kembali ${userData.data.fullName}`);
         setUser(userData);
         setError(null);
 
