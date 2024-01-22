@@ -24,12 +24,13 @@ const useLogin = () => {
 
         const userData = {
           credentials: credentials.user,
-          user: docSnap.data(),
+          data: docSnap.data(),
         };
 
         toast.success(`Selamat datang kembali ${userData.user.fullName}`);
         setUser(userData);
         setError(null);
+
         return userData;
       }
     } catch (error) {

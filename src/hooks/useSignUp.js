@@ -57,12 +57,13 @@ const useSignUp = () => {
 
         const userData = {
           credentials: credentials.user,
-          user: newUser,
+          data: newUser,
         };
 
         setUser(userData);
-        toast.success(`Berhasil membuat akun`);
+        toast.success(`Selamat datang ${fullName}`);
         setError(null);
+
         return userData;
       }
     } catch (error) {

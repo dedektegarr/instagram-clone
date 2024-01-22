@@ -2,7 +2,7 @@ import useLogin from "../../hooks/useLogin";
 import Button from "../UI/Button/Button";
 import { Input } from "../UI/Input/Input";
 import useFormValidation from "../../hooks/useFormValidation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // INITIAL STATE AND VALIDATION RULES
 const initialState = {
