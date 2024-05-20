@@ -1,16 +1,9 @@
-"use client";
-
-import { useFormState, useFormStatus } from "react-dom";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
-import { signup } from "@/actions/auth-action";
 
 export default function SignupForm() {
-  const [state, formAction] = useFormState(signup, null);
-  const { pending } = useFormStatus();
-
   return (
-    <form action={formAction} className="w-full flex flex-col gap-6">
+    <form action="" className="w-full flex flex-col gap-6">
       <div className="flex flex-col gap-3">
         <Input placeholder="Email" type="email" name="email" />
         <Input placeholder="Full Name" type="text" name="name" />
@@ -27,12 +20,8 @@ export default function SignupForm() {
         // disabled
         className="bg-blue-500 hover:bg-blue-600 disabled:hover:bg-blue-500 w-full"
       >
-        {pending ? "Loading..." : "Sign up"}
+        Sign up
       </Button>
-
-      {state?.error && (
-        <p className="text-sm text-red-400 font-light mt-3">{state.error}</p>
-      )}
     </form>
   );
 }
