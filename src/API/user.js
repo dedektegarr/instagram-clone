@@ -1,5 +1,5 @@
 import { db } from "@/utils/firebase/config";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 
 export async function createUser({ accountId, name, username }) {
   try {

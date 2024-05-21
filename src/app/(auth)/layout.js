@@ -8,8 +8,8 @@ export default function AuthLayout({ children }) {
           <figure className="ml-auto">
             <Image
               src="/static/auth-figure.png"
-              width={350}
-              height={600}
+              width={382}
+              height={587}
               priority
               alt="Figure"
             />
