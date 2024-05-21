@@ -4,7 +4,7 @@ import SignupForm from "@/components/Auth/SignupForm";
 
 export default function SignupPage() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 max-w-[400px] min-w-min">
       <div className="bg-dark-1 border text-center border-dark-2 px-8 pt-14 pb-10 rounded-md flex flex-col gap-6 items-center">
         <Image
           src="/static/logo.png"

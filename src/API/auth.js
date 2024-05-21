@@ -1,9 +1,7 @@
-import app from "@/utils/firebase/config";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { auth } from "@/utils/firebase/config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 export async function createUserAccount(email, password) {
-  const auth = getAuth(app);
-
   try {
     const userCredentials = await createUserWithEmailAndPassword(
       auth,
@@ -11,8 +9,8 @@ export async function createUserAccount(email, password) {
       password
     );
 
-    console.log(userCredentials);
+    return userCredentials.user;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
