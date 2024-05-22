@@ -1,8 +1,9 @@
 "use server";
-import { createUserAccount } from "@/API/auth";
+import { createUserAccount, signInUser } from "@/API/auth";
 import { createUser } from "@/API/user";
 import { firebaseErrorMsg } from "@/helpers/firebase";
-import { db } from "@/utils/firebase/config";
+import { auth, db } from "@/utils/firebase/config";
+import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { isRedirectError } from "next/dist/client/components/redirect";
 import { redirect } from "next/navigation";
@@ -46,6 +47,30 @@ export async function signup(prevState, formData) {
     if (isRedirectError(error)) {
       throw error;
     }
-    return { error: firebaseErrorMsg(error.code) };
+    return { error: firebaseErrorMsg(error.code) || error.message };
+  }
+}
+
+export async function login(prevState, formData) {
+  const email = formData.get("email");
+  const password = formData.get("password");
+
+  try {
+    await signInUser(email, password);
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+      } else {
+        console.log("sign out");
+      }
+    });
+
+    return redirect("/");
+  } catch (error) {
+    if (isRedirectError(error)) {
+      throw error;
+    }
+
+    return { error: firebaseErrorMsg(error.code) || error.message };
   }
 }
