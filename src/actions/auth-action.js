@@ -2,8 +2,7 @@
 import { createUserAccount, signInUser } from "@/API/auth";
 import { createUser } from "@/API/user";
 import { firebaseErrorMsg } from "@/helpers/firebase";
-import { auth, db } from "@/utils/firebase/config";
-import { onAuthStateChanged } from "firebase/auth";
+import { db } from "@/utils/firebase/config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { isRedirectError } from "next/dist/client/components/redirect";
 import { redirect } from "next/navigation";
@@ -57,13 +56,6 @@ export async function login(prevState, formData) {
 
   try {
     await signInUser(email, password);
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        console.log(user);
-      } else {
-        console.log("sign out");
-      }
-    });
 
     return redirect("/");
   } catch (error) {
