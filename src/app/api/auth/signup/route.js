@@ -56,14 +56,13 @@ export async function POST(request) {
   }
 
   //   store data to database
-  const hashedPassword = await bcrypt.hash(password, 10);
-
   try {
+    const hashedPassword = await bcrypt.hash(password, 10);
     await addDoc(collection(db, "users"), {
       email,
       username,
       name,
-      hashedPassword,
+      password: hashedPassword,
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     });
