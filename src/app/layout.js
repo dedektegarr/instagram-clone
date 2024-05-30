@@ -1,7 +1,8 @@
-import { Open_Sans } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/Sidebar/Sidebar";
 
-const openSans = Open_Sans({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Instagram",
@@ -11,7 +12,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={openSans.className}>{children}</body>
+      <body className={montserrat.className}>
+        <div className="flex gap-4">
+          <Sidebar />
+          <div>{children}</div>
+        </div>
+      </body>
     </html>
   );
 }

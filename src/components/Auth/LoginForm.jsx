@@ -4,9 +4,10 @@ import Input from "../UI/Input";
 import Button from "../UI/Button";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
+  const searchParams = useSearchParams();
   const [state, setState] = useState(undefined);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function LoginForm() {
     }
 
     setLoading(false);
-    return router.push("/");
+    return router.push(searchParams.get("callbackUrl") || "/");
   };
 
   return (

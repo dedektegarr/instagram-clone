@@ -11,6 +11,10 @@ module.exports = {
         "dark-1": "black",
         "dark-2": "#262626",
       },
+      container: {
+        center: "true",
+        padding: "1em",
+      },
     },
   },
   plugins: [],

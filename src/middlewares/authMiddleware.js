@@ -2,7 +2,7 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
 export async function authMiddleware(request) {
-  const protectedRoute = ["/"];
+  const protectedRoute = ["/", "/search"];
 
   const pathname = request.nextUrl.pathname;
 

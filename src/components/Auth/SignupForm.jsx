@@ -9,11 +9,7 @@ export default function SignupForm() {
   const [state, formAction] = useFormState(signup, null);
 
   return (
-    <form
-      action={formAction}
-      method="POST"
-      className="w-full flex flex-col gap-6"
-    >
+    <form action={formAction} className="w-full flex flex-col gap-6">
       <div className="flex flex-col gap-3">
         <Input placeholder="Email" type="email" name="email" />
         <Input placeholder="Full Name" type="text" name="name" />
