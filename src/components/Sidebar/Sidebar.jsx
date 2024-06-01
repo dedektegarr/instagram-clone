@@ -21,9 +21,9 @@ export default function Sidebar({}) {
   };
 
   return (
-    <div className="w-[245px]">
-      <div className="p-3 w-[inherit] flex flex-col justify-between fixed top-0 left-0 h-screen border-r border-dark-2">
-        <div className="py-8 px-3">
+    <div className="min-w-[70px] bg-black xl:min-w-[245px]">
+      <div className="p-3 min-w-[inherit] bg-inherit flex flex-col justify-between fixed top-0 left-0 h-screen border-r border-dark-2">
+        <div className="py-8 px-3 hidden xl:block">
           <img src="/static/logo.png" width={110} height={50} alt="Logo" />
         </div>
         <div className="h-full">

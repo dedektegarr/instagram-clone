@@ -22,7 +22,7 @@ export default function SidebarLink({
       } flex items-center gap-4 text-sm p-3 rounded-lg hover:bg-dark-2 transition duration-200`}
     >
       {icon && icon(isActive)}
-      {children}
+      <span className="hidden xl:block">{children}</span>
     </Link>
   );
 }
