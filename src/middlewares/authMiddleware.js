@@ -13,7 +13,8 @@ export async function authMiddleware(request) {
     });
     if (!token) {
       const url = new URL("/login", request.url);
-      url.searchParams.set("callbackUrl", encodeURIComponent(request.url));
+      console.log(request.url);
+      // url.searchParams.set("callbackUrl", encodeURIComponent(request.url));
       return NextResponse.redirect(url);
     }
   }

@@ -7,10 +7,12 @@ import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function LoginForm() {
-  const searchParams = useSearchParams();
   const [state, setState] = useState(undefined);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +33,7 @@ export default function LoginForm() {
     }
 
     setLoading(false);
-    return router.push(searchParams.get("callbackUrl") || "/");
+    return router.push("/");
   };
 
   return (
