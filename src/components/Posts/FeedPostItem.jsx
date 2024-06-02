@@ -8,7 +8,7 @@ export default function FeedPostItem() {
         <Link href="/profile">
           <div className="flex gap-2 items-center">
             <div className="w-[32px] h-[32px] rounded-full overflow-hidden">
-              <img
+              <Image
                 src="/static/profile.jpg"
                 alt="Profile"
                 width={32}
@@ -29,7 +29,9 @@ export default function FeedPostItem() {
         <div>...</div>
       </header>
 
-      <div className="w-full h-[500px] bg-gray-500"></div>
+      <div className="w-full h-[500px] bg-gray-500">
+        {/* <Image src="/static/profile.jpg" width={}/> */}
+      </div>
 
       <footer className="flex flex-col w-full gap-3">
         <div className="flex justify-between items-center">
