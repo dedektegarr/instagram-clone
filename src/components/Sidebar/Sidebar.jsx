@@ -5,6 +5,7 @@ import SidebarLink from "./SidebarLink";
 import SidebarNav from "./SidebarNav";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Sidebar({}) {
   const [loading, setLoading] = useState(false);
@@ -21,9 +22,9 @@ export default function Sidebar({}) {
   };
 
   return (
-    <div className="min-w-[70px] bg-black xl:min-w-[245px]">
-      <div className="p-3 min-w-[inherit] bg-inherit flex flex-col justify-between fixed top-0 left-0 h-screen border-r border-dark-2">
-        <div className="py-8 px-3 ">
+    <div className="min-w-[70px] bg-black xl:min-w-[245px] p-3">
+      <div className="p-3 min-w-[inherit] xl:min-w-[inherit] bg-inherit flex flex-col justify-between fixed top-0 left-0 h-screen border-r border-dark-2">
+        <div className="py-8 px-0 xl:px-3 ">
           <SidebarLink
             className="xl:hidden p-0"
             href="/"
@@ -42,13 +43,9 @@ export default function Sidebar({}) {
               </svg>
             )}
           />
-          <img
-            src="/static/logo.png"
-            className="hidden xl:block"
-            width={110}
-            height={50}
-            alt="Logo"
-          />
+          <Link className="hidden xl:block" href="/">
+            <img src="/static/logo.png" width={110} height={50} alt="Logo" />
+          </Link>
         </div>
         <div className="h-full">
           <SidebarNav />
